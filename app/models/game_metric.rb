@@ -1,0 +1,2 @@
+class GameMetric < ApplicationRecord
+end
