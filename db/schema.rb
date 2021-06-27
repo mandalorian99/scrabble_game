@@ -10,6 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_06_27_131853) do
 
+  create_table "game_metrics", force: :cascade do |t|
+    t.integer "player_id", null: false
+    t.string "result", null: false
+    t.integer "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_game_metrics_on_game_id"
+    t.index ["player_id"], name: "index_game_metrics_on_player_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer "player_one_id"
+    t.integer "player_two_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_one_id"], name: "index_games_on_player_one_id"
+    t.index ["player_two_id"], name: "index_games_on_player_two_id"
+  end
+
+  create_table "leader_boards", force: :cascade do |t|
+    t.integer "player_id", null: false
+    t.integer "score", default: 0
+    t.integer "total_games", default: 0
+    t.integer "win", default: 0
+    t.integer "loss", default: 0
+    t.integer "stale", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_leader_boards_on_player_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name", limit: 50, default: "", null: false
+    t.string "phone_number", limit: 10
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "game_metrics", "users", column: "game_id"
+  add_foreign_key "game_metrics", "users", column: "player_id"
+  add_foreign_key "games", "users", column: "player_one_id"
+  add_foreign_key "games", "users", column: "player_two_id"
+  add_foreign_key "leader_boards", "users", column: "player_id"
 end
