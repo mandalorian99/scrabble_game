@@ -1,0 +1,11 @@
+<h2>User details</h2>
+<p style="color: green" ><%= flash[:notice] %></p>
+<p>Name: <%= current_user.name %></p>
+<p>Phone Number: <%= current_user.phone_number %></p>
+<p>Date of joining: <%= current_user.created_at.strftime("%B %d, %Y") %></p>
+
+<h3>Game Metrics</h3>
+<%= render 'metrics' %>
+
+<p><%= link_to 'Leader Board', leader_board_index_path %></p>
+<p style="color: red"><%= link_to 'Log out', logout_session_index_path %> </p>
