@@ -1,0 +1,16 @@
+<h2>Join us</h2>
+<% flash.each do |type, msg| %>
+  <p style="color: blue">
+    <%= msg %>
+  </p>
+<% end %>
+
+<%= form_with model: @user, url: registration_index_path, method: 'post'  do |form| %>
+  <%= form.label :name, 'Enter your name'%>
+  <%= form.text_field :name %>
+  <br/><br/>
+  <%= form.label :name, 'Enter your phone'%>
+  <%= form.text_field :phone_number %>
+  <br/>
+  <%= form.submit 'Register' %>
+<% end %>
