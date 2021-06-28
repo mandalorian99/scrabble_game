@@ -6,7 +6,7 @@ class LeaderBoardQuery < BaseQuery
         leader_boards.* 
       FROM leader_boards
       JOIN users
-      ON users.id = leader_boards.player_id
+      ON users.id = leader_boards.user_id
       WHERE leader_boards.total_games >= :threshold
       ORDER BY leader_boards.score DESC
     SQL

@@ -5,7 +5,5 @@ class User <  ApplicationRecord
   
   # Association
   has_many :game_metrics, foreign_key: :player_id
-
-  # Scope
-  scope :leader_board, ->(user_id){ LeaderBoard.find_by(player_id: user_id) }
+  has_one :leader_board
 end

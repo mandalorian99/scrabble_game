@@ -1,7 +1,7 @@
 class LeaderBoard < ApplicationRecord
   MININUM_GAME_COUNT = 1
   # Association
-  belongs_to :user, foreign_key: :id
+  belongs_to :user
 
   class << self
     def top_scorers

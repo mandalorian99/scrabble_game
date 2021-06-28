@@ -5,12 +5,11 @@ class RegistrationController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    byebug
     if @user.valid? && @user.save!
+      @user.create_leader_board(score: 0, total_games: 0, win: 0, loss: 0)
       redirect_to new_registration_path, notice: 'User created successfully'
       return
     end
-    byebug
     redirect_to new_registration_path, notice: @user.errors.messages
   end
 

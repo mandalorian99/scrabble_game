@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
-    @leader_board = User.leader_board(@user.id)
-    @top_game = GameMetric.user_top_score(@user.id)
+    @leader_board = @user.leader_board || LeaderBoard.new
+    @top_game = @user.game_metrics.count > 0 ? GameMetric.user_top_score(@user.id) : GameMetric.new
   end
 
   private
