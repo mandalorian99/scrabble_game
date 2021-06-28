@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_27_131853) do
+ActiveRecord::Schema.define(version: 2021_06_28_082842) do
 
   create_table "game_metrics", force: :cascade do |t|
     t.integer "player_id", null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_06_27_131853) do
     t.string "phone_number", limit: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["phone_number"], name: "index_users_on_phone_number", unique: true
   end
 
   add_foreign_key "game_metrics", "users", column: "game_id"
