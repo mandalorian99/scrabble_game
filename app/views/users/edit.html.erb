@@ -1,0 +1,6 @@
+<h2><%= @title %></h2>
+<% flash.each do |type, msg| %>
+<p style="color: blue"> <%= msg %> </p>
+<% end %>
+  
+<%= render 'shared/form' %>

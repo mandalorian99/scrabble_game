@@ -7,5 +7,6 @@
 <h3>Game Metrics</h3>
 <%= render 'metrics' %>
 
+<p><%= link_to 'Edit user Details', edit_user_path(@user) %></p>
 <p><%= link_to 'Leader Board', leader_board_index_path %></p>
 <p style="color: red"><%= link_to 'Log out', logout_session_index_path %> </p>
