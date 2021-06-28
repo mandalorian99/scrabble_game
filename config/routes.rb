@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root controller: 'session', action: 'new'
+  resources :registration, only: [:new, :create]
+  resources :session, only: %i[new create] do
+    collection do
+      get 'logout'
+    end
+  end
+
+  resources :users, only: [:show]
+  resources :leader_board, only: [:index]
 end
