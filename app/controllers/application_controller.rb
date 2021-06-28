@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
     redirect_to new_registration_path, notice: 'Register before playing scrable'
   end
 
+  def access_denied
+    redirect_to new_registration_path, notice: 'unreachable resource access denied'
+  end
+
   def check_authorization
-    render_404 unless current_user.present?
+    access_denied unless current_user.present?
   end
 
   def current_user
