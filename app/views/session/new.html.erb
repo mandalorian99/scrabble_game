@@ -1,0 +1,8 @@
+<div>
+  <h1>Play Scrable</h1>
+  <p style="color: green"><%= flash[:notice] %></p>
+  <p>Enter your mobile number to get start</p>
+  <%= render 'form', user: @user %>
+
+  <p>Or register <%= link_to 'here', new_registration_path %></p>
+</div>
