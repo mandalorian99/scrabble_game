@@ -1,4 +1,4 @@
-<table>
+<table style="text-align: center">
   <tr>
     <th>Games Played</th>
     <th>Wins</th>
@@ -7,9 +7,9 @@
   </tr>
 
   <tr>
-    <td>10</td>
-    <td>5</td>
-    <td>3</td>
-    <td>1</td>
+    <td><%= @leader_board.total_games %></td>
+    <td><%= @leader_board.win %></td>
+    <td><%= @leader_board.loss %></td>
+    <td><%= @leader_board.stale %></td>
   </tr>
 </table>

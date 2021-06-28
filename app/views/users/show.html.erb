@@ -3,7 +3,7 @@
 <p>Name: <%= current_user.name %></p>
 <p>Phone Number: <%= current_user.phone_number %></p>
 <p>Date of joining: <%= current_user.created_at.strftime("%B %d, %Y") %></p>
-
+<p>Top Score: <%= @top_game.points %></p>
 <h3>Game Metrics</h3>
 <%= render 'metrics' %>
 
